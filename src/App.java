@@ -9,6 +9,7 @@ public class App {
             String player = sc.next();
             match.pointWonBy(player);
             match.score();
+            sc.close();
         }
 
     }
