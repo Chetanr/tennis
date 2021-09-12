@@ -12,4 +12,4 @@ A. **main/java** directory contains the main java files for the code. It has all
 B. **test** directory contains the test file that is used to test the code.
 
 Class Diagram of the code can be found below.
-![](Class Diagram.png)
+![Class Diagram.png](Class Diagram.png)
