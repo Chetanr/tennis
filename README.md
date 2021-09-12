@@ -3,6 +3,7 @@ This is a sample project to simualte a tennis score card, assuming the user pass
 
 ## Structure
 From the src directory,
+
 A. **main/java** directory contains the main java files for the code. It has all the main code
   1. **Match.java** - Used to handle all the operations relating to the match.
   2. **Score.java** - used to store the scores. Further, it uses ScoreMapper class to map the score with the actual score.
