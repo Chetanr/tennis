@@ -17,7 +17,8 @@ public class MatchTest{
 
 
     /*
-        Test to check for 40-0 scenario
+        Test to check for 40-0 scenario,
+        output : player1 wins the game
     */
     @Test
     public void Test1(){
@@ -33,6 +34,7 @@ public class MatchTest{
 
     /*
         Random Test
+        output: player1 wins the game
     */
     @Test
     public void Test2(){
@@ -42,9 +44,11 @@ public class MatchTest{
         match.score();
         match.pointWonBy(playerTwo);
         match.score();
-        match.pointWonBy(playerTwo);
+        match.pointWonBy(playerOne);
         match.score();
-        match.pointWonBy(playerTwo);
+        match.pointWonBy(playerOne);
+        match.score();
+        match.pointWonBy(playerOne);
         match.score();
 
     }
@@ -52,6 +56,7 @@ public class MatchTest{
 
     /*
         Test to check deuce game
+        output: player2 wins the game
     */
     @Test
     public void Test3(){

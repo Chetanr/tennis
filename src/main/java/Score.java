@@ -5,10 +5,10 @@ public class Score {
        gameScore is used to record the scores of the game
        setScore is used to record the scores of a particular set
     */
-    int[] setScore;
-    int[] gameScore;
-    int[] deuceScore;
-    ScoreMapper scoreMapper;
+    private int[] setScore;
+    private int[] gameScore;
+    private int[] deuceScore;
+    private ScoreMapper scoreMapper;
 
     /*
        constructor to initialize class variables
@@ -75,7 +75,6 @@ public class Score {
     /*
        get the player represenation set score
     */
-
     public int getPlayerRepresentationSetScore(String player){
         int playerIndex = playerIndex(player);
         return setScore[playerIndex];
