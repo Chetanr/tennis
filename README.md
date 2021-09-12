@@ -10,6 +10,3 @@ A. **main/java** directory contains the main java files for the code. It has all
   3. **ScoreMapper.java** - returns the actual score for a particular score. For example, if a player has scored 2 points, it will return 30.
 
 B. **test** directory contains the test file that is used to test the code.
-
-Class Diagram of the code can be found below.
-![Class Diagram.png](Class Diagram.png)
