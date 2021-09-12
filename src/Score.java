@@ -4,48 +4,62 @@ public class Score {
         gameScore is used to record the scores of the game
         setScore is used to record the scores of a particular set
     */
-    int gameScore;
-    int setScore;
-    ScoreMapper scoreMapper;
-    private static final int DEUCE_SCORE = 40;
+    private int[] setScore;
+    private int[] gameScore;
+    private ScoreMapper scoreMapper;
 
+    /*
+        constructor to initialize class variables
+    */
     public Score(){
-        gameScore = 0;
-        setScore = 0;
+        setScore = new int[]{0,0};
+        gameScore = new int[]{0,0};
         scoreMapper = new ScoreMapper();
     }
 
     /*
-        update the particular score
+        update the particular set score
     */
-    public void update(){
-        int point = getSetScore();
-        setScore = scoreMapper.scoreUpdater(point);
+    public void updateSetScore(String player){
+        int playerIndex = playerIndex(player);
+        setScore[playerIndex]  = setScore[playerIndex] + 1;
+    }
+
+    private int playerIndex(String player){
+        return player.equals("player1") ? 0 : 1;
     }
 
     /*
-        check if the score is deuce
+        update the particular game score
     */
-    // public boolean checkDeuce(Player player1, Player player2){
-    //     if (setScores.get(player1) == DEUCE_SCORE && setScores.get(player2) == DEUCE_SCORE){
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+    public void updateGameScore(String player){
+        int playerIndex = playerIndex(player);
+        gameScore[playerIndex]  = gameScore[playerIndex] + 1;
+    }
 
     /*
         get the set score of the particular player
     */
-    public int getSetScore(){
-        return setScore;
+    public String getSetScore(String player){
+        return scoreMapper.getMapper(playerIndex(player));
     }
+
+
+    /*
+        get the player represenation set score
+    */
+
+    public int getPlayerRepresentationSetScore(String player){
+        int playerIndex = playerIndex(player);
+        return setScore[playerIndex];
+    }
+
 
     /*
         get the game score of the particular player
     */
-    public int getGameScore(){
-        return gameScore;
+    public int getGameScore(String player){
+        return gameScore[playerIndex(player)];
     }
 
 }

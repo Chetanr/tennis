@@ -1,31 +1,85 @@
 public class Match {
-    Player playerA;
-    Player playerB;
-    Score score;
+
+
+    private String playerA;
+    private String playerB;
+    private Score score;
+
+
+    /*
+        Constructor
+    */
     public Match(String player1,String player2){
-        playerA = new Player();
-        playerB = new Player();
+        playerA = player1;
+        playerB = player2;
+        score = new Score();
     }
 
+
+    /*
+        Update the point for the particular player
+    */
     public void pointWonBy(String player){
-        Player targetPlayer = getPlayer(player);
-        targetPlayer.updateScore();
+        score.updateSetScore(player);
     }
 
-    public Player getPlayer(String player){
-        if (player.equals("player1")) {
-            return playerA;
-        }
-        return playerB;
-    }
 
-    public void getScore(){
-
-    }
-
+    /*
+        Display the scores, check if the set is being won
+        and display the game score if a player wins the game
+    */
     public void score(){
-        int playerAScore = playerA.getSetScore();
-        int playerBScore = playerB.getSetScore();
-        System.out.println(playerAScore + "-" + playerBScore);
+        int scoreARepresentation = score.getPlayerRepresentationSetScore(playerA);
+        int scoreBRepresentation = score.getPlayerRepresentationSetScore(playerB);
+        displaySetScore();
+        if (isGameWon(scoreARepresentation, scoreBRepresentation)){
+            String winningPlayer = winningPlayer(scoreARepresentation, scoreBRepresentation);
+            score.updateGameScore(winningPlayer);
+            displayGameScore();
+        }
     }
+
+
+    /*
+        Display the set score
+    */
+    public void displaySetScore(){
+        String playerASetScore = score.getSetScore(playerA);
+        String playerBSetScore = score.getSetScore(playerB);
+        System.out.println(playerASetScore + "-" + playerBSetScore);
+    }
+
+
+    /*
+        Display the game score
+    */
+    public void displayGameScore(){
+        int playerAGameScore = score.getGameScore(playerA);
+        int playerBGameScore = score.getGameScore(playerB);
+        System.out.println(playerAGameScore + "-" + playerBGameScore);
+    }
+
+
+    /*
+        check who won the game
+    */
+    private boolean isGameWon(int playerAScore, int playerBScore) {
+        return scoreDifference(2, playerAScore, playerBScore) && (playerBScore == 4 || playerBScore == 4);
+    }
+
+
+    /*
+        check the score difference
+    */
+    private boolean scoreDifference(int difference, int playerAScore, int playerBScore) {
+        return Math.max(playerAScore, playerBScore) - Math.min(playerAScore, playerBScore) >= difference;
+    }
+
+
+    /*
+        find the winning player
+    */
+    private String winningPlayer(int scoreARepresentation, int scoreBRepresentation){
+        return (scoreARepresentation > scoreBRepresentation) ? playerA : playerB;
+    }   
 }

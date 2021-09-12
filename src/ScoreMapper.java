@@ -1,18 +1,14 @@
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 /*
     This class is used to map the scores in order to increment the score
 */
 public class ScoreMapper {
-    HashMap<Integer, Integer> score = new HashMap<>();
+    private ArrayList<String> scores = new ArrayList<>(Arrays.asList("0", "15", "30", "40", "ad"));
 
-    public ScoreMapper(){
-        score.put(0, 15);
-        score.put(15, 30);
-        score.put(30, 40);
-    }
-
-    public int scoreUpdater(int scoreToBeMapped){
-        return score.get(scoreToBeMapped);
+     String getMapper(int scoreToBeMapped){
+        return scores.get(scoreToBeMapped);
     }
 }
