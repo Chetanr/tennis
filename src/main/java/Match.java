@@ -1,9 +1,10 @@
+package main.java;
 public class Match {
 
 
-    private String playerA;
-    private String playerB;
-    private Score score;
+    String playerA;
+    String playerB;
+    Score score;
 
 
     /*
@@ -63,7 +64,7 @@ public class Match {
     /*
         check who won the game
     */
-    private boolean isGameWon(int playerAScore, int playerBScore) {
+    public boolean isGameWon(int playerAScore, int playerBScore) {
         return scoreDifference(2, playerAScore, playerBScore) && (playerBScore == 4 || playerBScore == 4);
     }
 
@@ -71,7 +72,7 @@ public class Match {
     /*
         check the score difference
     */
-    private boolean scoreDifference(int difference, int playerAScore, int playerBScore) {
+    public boolean scoreDifference(int difference, int playerAScore, int playerBScore) {
         return Math.max(playerAScore, playerBScore) - Math.min(playerAScore, playerBScore) >= difference;
     }
 
@@ -79,7 +80,7 @@ public class Match {
     /*
         find the winning player
     */
-    private String winningPlayer(int scoreARepresentation, int scoreBRepresentation){
+    public String winningPlayer(int scoreARepresentation, int scoreBRepresentation){
         return (scoreARepresentation > scoreBRepresentation) ? playerA : playerB;
     }   
 }

@@ -1,12 +1,13 @@
+package main.java;
 public class Score {
 
     /*
         gameScore is used to record the scores of the game
         setScore is used to record the scores of a particular set
     */
-    private int[] setScore;
-    private int[] gameScore;
-    private ScoreMapper scoreMapper;
+    int[] setScore;
+    int[] gameScore;
+    ScoreMapper scoreMapper;
 
     /*
         constructor to initialize class variables
@@ -25,7 +26,7 @@ public class Score {
         setScore[playerIndex]  = setScore[playerIndex] + 1;
     }
 
-    private int playerIndex(String player){
+    public int playerIndex(String player){
         return player.equals("player1") ? 0 : 1;
     }
 
@@ -41,7 +42,7 @@ public class Score {
         get the set score of the particular player
     */
     public String getSetScore(String player){
-        return scoreMapper.getMapper(playerIndex(player));
+        return scoreMapper.getMapper(getPlayerRepresentationSetScore(player));
     }
 
 
